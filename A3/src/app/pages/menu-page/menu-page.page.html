@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>MenuPage</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="text-align: center" >
+
+    <ion-button color="tertiary" [routerLink]="['/currentOrder']">
+      Check Current Order 
+    </ion-button>
+
+  </div>
+  <div style="text-align: center" >
+  <ion-button color="tertiary" [routerLink]="['/home']">
+    Update Current Order 
+  </ion-button> 
+  </div>
+  <div style="text-align: center" >
+  <ion-button color="tertiary" [routerLink]="['/previousOrder']">
+    Previous Orders 
+  </ion-button>
+</div>
+  <div style="text-align: center" >
+  <ion-button color="tertiary" [routerLink]="['/home']"><!--need to add clicked functionality for clearing the home page saved data ie: (click)="clicked()"-->
+    New Order 
+  </ion-button>
+</div>
+
+
+</ion-content>
