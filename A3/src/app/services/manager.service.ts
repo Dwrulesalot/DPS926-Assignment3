@@ -38,12 +38,15 @@ export class ManagerService {
 
   //loops through each pizza in the order and adds each cost to this.totalCost and returns the value
   orderCostTotal(): number{
+    console.log("orderCostTotal: initial total cost: "+this.totalCost);
     this.totalCost = 0;
 
     for (let pizza of this.pizzaOrder){
-
+      console.log("test");
       pizza.pizzaCost();
       this.totalCost += pizza.cost;
+      console.log("orderCostTotal: for loop this.totalCost: "+this.totalCost);
+      console.log("orderCostTotal: for loop pizza.cost: "+this.totalCost);
     }
 
     return this.totalCost;

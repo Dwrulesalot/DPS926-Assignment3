@@ -82,16 +82,22 @@ export class HomePage {
 
     }
     else{//if all have been selected 
+      
+      this.managerService.pizzaOrder.push(this.currentPizza);//pushes this pizza to the current pizza order in manager
+
+      this.currentPizza.pizzaCost(); //updates the pizza 'cost' with the currentPizza variables
+      this.managerService.orderCostTotal(); //updates the order total cost
+
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
         header: 'Success!',
         subHeader: '',
-        message: 'Your Pizza(s) have been added to your order.',
+        message: 'Your '+this.currentPizza.quantity+' Pizzas, totalling: $' + this.currentPizza.cost +', have been added to your order. Your current order total is: $'+this.managerService.totalCost,
         buttons: ['OK']
       });
 
-      this.managerService.pizzaOrder.push();//pushes this pizza to the current pizza order in manager
-      this.resetClicked;//resets the current page
+      
+      this.resetClicked();//resets the current page
 
       await alert.present();
 
