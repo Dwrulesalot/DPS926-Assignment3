@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ManagerService } from './../../services/manager.service';
+import { PizzaService } from './../../services/pizza.service';
 
 @Component({
   selector: 'app-current-order',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurrentOrderPage implements OnInit {
 
-  constructor() { }
+  
+  constructor(private managerService:ManagerService) { }
 
   ngOnInit() {
+    //console.log("CurrentOrderPage init test: "+this.managerService.totalCost);//it works!
+  }
+
+  //alert asking the user if they want to delete the item from the order //add to manager: deletePizza(pizza){currentOrder.Remove(pizza)}
+  itemClicked(pizza: PizzaService){
+
+  }
+
+  //call 
+  placeOrderClicked(){
+
   }
 
 }

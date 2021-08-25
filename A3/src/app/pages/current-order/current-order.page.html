@@ -3,10 +3,88 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="menu"></ion-back-button><!--Goes to menu page rather than home page-->
     </ion-buttons>
-    <ion-title>CurrentOrder</ion-title>
+    <ion-title>My Current Order</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
 
+      </ion-col>
+      <ion-col><!--middle column default centered-->
+        <ion-title size="large" >Total: ${{managerService.totalCost}} </ion-title>
+      </ion-col>
+      <ion-col>
+        
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+
+      </ion-col>
+      <ion-col><!--middle column default centered-->
+        <ion-title size="large" >Number of Pizzas: {{managerService.totalPizzas}} </ion-title>
+      </ion-col>
+      <ion-col>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-content>
+    <ion-list *ngFor="let pizza of managerService.pizzaOrder" >
+      <ion-item button (click)="itemClicked(pizza)" ><!--add context menu/alert/option to delete-->
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label>
+                Topping: {{pizza.topping}}
+              </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>
+                Size: {{pizza.size}}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-label>
+                Cost: {{pizza.cost}}
+              </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>
+                Quantity: {{pizza.quantity}}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+
+        </ion-grid>
+        
+      </ion-item>
+  
+    </ion-list>
+  </ion-content>
+
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+  
+        </ion-col>
+        <ion-col><!--middle column default centered-->
+          <ion-button color="tertiary" (click)="placeOrderClicked()">
+            Place Order
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
 </ion-content>

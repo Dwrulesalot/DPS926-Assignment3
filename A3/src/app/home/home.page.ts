@@ -15,7 +15,7 @@ export class HomePage {
 
   
 
-  constructor(private managerService: ManagerService, public alertController: AlertController) {
+  constructor(public managerService: ManagerService, public alertController: AlertController) {
     this.currentPizza = new PizzaService(0, "N/A", "N/A");//this is the base display
   }
 
@@ -87,6 +87,7 @@ export class HomePage {
 
       this.currentPizza.pizzaCost(); //updates the pizza 'cost' with the currentPizza variables
       this.managerService.orderCostTotal(); //updates the order total cost
+      this.managerService.orderPizzaCountTotal();//updates the order total pizza count
 
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
