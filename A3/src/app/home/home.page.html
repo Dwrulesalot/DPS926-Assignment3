@@ -1,5 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-img slot="start" style="width: 80px; height: 80px;" [src]=url></ion-img><!--scales the image down-->
     <ion-title>
       Ionic/Angular Pizza App
     </ion-title>
@@ -9,17 +10,119 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">
-        test
-      
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content padding>
+  <div>Quantity: {{currentPizza.quantity}} </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="numberClicked(1)">
+          1
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="numberClicked(2)">
+          2
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="numberClicked(3)">
+          3
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="numberClicked(4)">
+          4
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="numberClicked(5)">
+          5
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="numberClicked(6)">
+          6
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="numberClicked(7)">
+          7
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="numberClicked(8)">
+          8
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="numberClicked(9)">
+          9
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button color="danger" (click)="resetClicked()">
+          RESET
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="numberClicked(1)">
+          0
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="success" (click)="buyClicked()">
+          BUY
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <div id="container">
+  <ion-grid>
+    <!--top of the grid has the current topping and size selected-->
+    <ion-row>
+      <ion-col>
+        <div>Topping: {{currentPizza.topping}}</div>
+      </ion-col>
+      <ion-col>
+        <div>Size: {{currentPizza.size}}</div>
+      </ion-col>
+    </ion-row>
     
-  </div>
+    <!--this part of the grid has two lists one in each column corresponding to the above info-->
+    <ion-row>
+      <ion-col>
+        <ion-content>
+        <ion-list *ngFor="let topping of managerService.pizzaToppingList" >
+          <ion-item button (click)="toppingClicked(topping)" >
+            <ion-label>
+              {{topping}}
+            </ion-label>
+          </ion-item>
+      
+        </ion-list>
+      </ion-content>
+      </ion-col>
+
+      <ion-col>
+        <ion-list *ngFor="let size of managerService.pizzaSizeList">
+          <ion-item button (click)="sizeClicked(size)" >
+            <ion-label>
+              {{size}}
+            </ion-label>
+          </ion-item>
+      
+        </ion-list>
+      </ion-col>
+
+    </ion-row>
+
+    
+  </ion-grid>
+  
 </ion-content>

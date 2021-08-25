@@ -26,9 +26,9 @@ export class ManagerService {
   constructor() { // I don't need private pizzaService: PizzaService
     this.totalCost = 0.0;//should I just do this above?
     this.totalPizzas = 0;
+    this.pizzaOrder = [];//definitions
+    this.allOrders = [];
   }
-
-  //sets the date/time of the current order to the device's current date/time
   
   //adds the pizza to the current order array
   addPizza(pza: PizzaService){
@@ -36,15 +36,36 @@ export class ManagerService {
     console.log(this.pizzaOrder);//console output to confirm pizza was added
   }
 
-  orderCostTotal(){
+  //loops through each pizza in the order and adds each cost to this.totalCost and returns the value
+  orderCostTotal(): number{
+    this.totalCost = 0;
 
-  }
-  orderPizzaCountTotal(){
+    for (let pizza of this.pizzaOrder){
 
+      pizza.pizzaCost();
+      this.totalCost += pizza.cost;
+    }
+
+    return this.totalCost;
   }
-  //sumbits the order to the history, setting the time and totalCost/totalPizzas
+
+  //loops through each pizza in the order and adds the quantity of each pizza in the order to this.totalPizzas
+  orderPizzaCountTotal(): number{
+    this.totalPizzas = 0;
+
+    for (let pizza of this.pizzaOrder){
+      this.totalPizzas += pizza.quantity;
+    }
+    
+    return this.totalPizzas;
+  }
+  //todo history cost total & history pizza count total as extra
+
+
+  //sumbits the order to the history, setting the time and totalCost/totalPizzas 
   addToHistory(m: ManagerService){
-    m.dateTime = new Date();
+    m.dateTime = new Date();//sets the date/time of the current order to the device's current date/time
     this.allOrders.push(m);
+    console.log(this.allOrders);
   }
 }

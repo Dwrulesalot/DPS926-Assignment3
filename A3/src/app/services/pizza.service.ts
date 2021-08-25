@@ -7,12 +7,12 @@ export class PizzaService {//Technically should name this PizzaOrderService cuz 
 
   //all the values a pizza must have
   quantity:number;
-  topping:String;
-  size:String;
+  topping:string;
+  size:string;
   cost:number;
 
   //constructor taking the order
-  constructor(q:number, t:String, s:String) { 
+  constructor(q:number, t:string, s:string) { 
     this.quantity = q;
     this.topping = t;
     this.size = s;
