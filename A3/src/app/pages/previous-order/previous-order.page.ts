@@ -8,8 +8,6 @@ import { ManagerService } from './../../services/manager.service';
 })
 export class PreviousOrderPage {
 
- 
-
   constructor(private managerService:ManagerService) { }
     
 }

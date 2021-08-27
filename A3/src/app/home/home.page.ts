@@ -16,11 +16,11 @@ export class HomePage {
   
 
   constructor(public managerService: ManagerService, public alertController: AlertController) {
-    this.currentPizza = new PizzaService(0, "N/A", "N/A");//this is the base display
+    this.currentPizza = new PizzaService(0, "N/A", "N/A");//base display
   }
 
-  
-  ngAfterViewChecked(){//using this to check if New Order button has been clicked, if so, reset the current values and change the bool in mangaer back to false
+  //checks if New Order button has been clicked, if so, reset selected values to base and change the bool in manager back to false
+  ngAfterViewChecked(){
     console.log("Home Page: ngAfterViewChecked() -  "+this.managerService.newOrderBool);
     if(this.managerService.newOrderBool){
       this.resetClicked();
@@ -28,11 +28,11 @@ export class HomePage {
     }
   }
 
-  //method that handles number clicks, changing currentPizza.quantity
+  //method that handles when a number is clicks, changing currentPizza.quantity
   async numberClicked(n:number){
+    
     if(this.currentPizza.quantity>99){//if the quantity is triple digit
-      
-      const alert = await this.alertController.create({
+        const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
         header: 'Error!',
         subHeader: '',
@@ -42,9 +42,11 @@ export class HomePage {
 
       await alert.present();
     }
+    //if quantity is currently 0 - so for the default
     else if(this.currentPizza.quantity === 0){
-      this.currentPizza.quantity = n;//if quantity is currently 0 change to the inputted number
+      this.currentPizza.quantity = n;
     }
+    
     else{
       //concats the number clicked to the currentPizza.quantity
       this.currentPizza.quantity *= 10;//pushes the number one space ie 69 -> 690
@@ -73,7 +75,7 @@ export class HomePage {
       await alert.present();
 
     }
-    else if(this.currentPizza.size ==="N/A"){//if the siz isn't selected
+    else if(this.currentPizza.size ==="N/A"){//if the size isn't selected
       
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
@@ -116,7 +118,7 @@ export class HomePage {
       });
 
       
-      this.resetClicked();//resets the current page
+      this.resetClicked();
 
       await alert.present();
 

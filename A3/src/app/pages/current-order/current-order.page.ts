@@ -50,7 +50,7 @@ export class CurrentOrderPage {
       buttons: ['OK']
     });
 
-    console.log('CurrentOrder: placeOrderClicked-  ',this.managerService);//why does this show totalCost & totalPizzas as empty yet above and even here they work if specified?
+    console.log('CurrentOrder: placeOrderClicked-  ',this.managerService);
     
     this.managerService.addToHistory();
     await alert.present();

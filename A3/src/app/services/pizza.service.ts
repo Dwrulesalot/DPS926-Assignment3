@@ -16,10 +16,10 @@ export class PizzaService {//Technically should name this PizzaOrderService cuz 
     this.quantity = q;
     this.topping = t;
     this.size = s;
-    this.pizzaCost();// calculates cost of the pizza right away and sets this.cost
+    this.pizzaCost();
   }
 
-  //sets/calculates the pizza cost based on the quantity, topping, and size
+  //sets/calculates the pizza cost based on the size, topping, and multiplies it by the quantity
   pizzaCost(){
     
     this.cost = 0.0;
@@ -40,10 +40,7 @@ export class PizzaService {//Technically should name this PizzaOrderService cuz 
     {
       this.cost += 14.99;
     }
-    else//therefore it's "N/A"
-    {
-      //cost is already 0.0
-    }
+    
     if (this.topping.toString() === "Pepperoni")
     {
       this.cost += 2.0;
@@ -60,13 +57,8 @@ export class PizzaService {//Technically should name this PizzaOrderService cuz 
     {
       this.cost += 1.5;
     }
-    else//therefore it's "N/A"
-    {
-      //cost is already 0.0
-    }
-
-    //at this point cost = the price of 1 pizza with this.size & this.topping
-    this.cost *=this.quantity;//multiplying cost of one pizza by the quantity of pizzas
+    
+    this.cost *=this.quantity;
     
   }
 }
