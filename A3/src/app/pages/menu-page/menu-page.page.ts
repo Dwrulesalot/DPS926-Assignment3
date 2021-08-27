@@ -10,7 +10,7 @@ export class MenuPagePage {
 
   constructor(private managerService:ManagerService) { }
 
-  //Changes boolean in the manager service which is then caught by home.page in ngOnChanges() and will reset the values
+  //Changes boolean signalling a reset to base values on the current order page
   newOrderClicked(){
     this.managerService.newOrderBool = true;
     console.log(this.managerService.newOrderBool);

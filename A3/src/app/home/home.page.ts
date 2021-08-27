@@ -30,8 +30,8 @@ export class HomePage {
 
   //method that handles when a number is clicks, changing currentPizza.quantity
   async numberClicked(n:number){
-    
-    if(this.currentPizza.quantity>99){//if the quantity is triple digit
+    //if the quantity is triple digit
+    if(this.currentPizza.quantity>99){
         const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
         header: 'Error!',
@@ -42,7 +42,7 @@ export class HomePage {
 
       await alert.present();
     }
-    //if quantity is currently 0 - so for the default
+    
     else if(this.currentPizza.quantity === 0){
       this.currentPizza.quantity = n;
     }
@@ -59,10 +59,11 @@ export class HomePage {
     this.currentPizza = new PizzaService(0, "N/A", "N/A");
   }
 
-  //alerts fail/sucess, if sucess sends this.currentPizza to the manager
+  //checks if quantity, size and topping have been selected displaying an appropriate display 
   async buyClicked(){
     console.log("buyClicked");
-    if(this.currentPizza.quantity===0){//if the quantity isn't selected
+    //if the quantity isn't selected
+    if(this.currentPizza.quantity===0){
       
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
@@ -75,7 +76,8 @@ export class HomePage {
       await alert.present();
 
     }
-    else if(this.currentPizza.size ==="N/A"){//if the size isn't selected
+    //if the size isn't selected
+    else if(this.currentPizza.size ==="N/A"){
       
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
@@ -88,7 +90,8 @@ export class HomePage {
       await alert.present();
 
     }
-    else if(this.currentPizza.topping ==="N/A"){//if the topping isn't selected
+    //if the topping isn't selected
+    else if(this.currentPizza.topping ==="N/A"){
      
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
@@ -101,14 +104,14 @@ export class HomePage {
       await alert.present();
 
     }
-    else{//if all have been selected 
-      
-      this.managerService.pizzaOrder.push(this.currentPizza);//pushes this pizza to the current pizza order in manager
+    //if all have been selected 
+    else{
+      //pushes this pizza to the current pizza order in manager
+      this.managerService.pizzaOrder.push(this.currentPizza);
 
-      this.currentPizza.pizzaCost(); //updates the pizza 'cost' with the currentPizza variables
-      this.managerService.orderCostTotal(); //updates the order total cost
-      this.managerService.orderPizzaCountTotal();//updates the order total pizza count
-
+      this.currentPizza.pizzaCost(); 
+      this.managerService.orderCostTotal();
+      this.managerService.orderPizzaCountTotal();
       const alert = await this.alertController.create({
         cssClass: 'my-custom-class',
         header: 'Success!',

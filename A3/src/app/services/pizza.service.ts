@@ -3,15 +3,13 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class PizzaService {//Technically should name this PizzaOrderService cuz it holds a whole order's info but meh
+export class PizzaService {
 
-  //all the values a pizza must have
   quantity:number;
   topping:string;
   size:string;
   cost:number;
 
-  //constructor taking the order
   constructor(q:number, t:string, s:string) { 
     this.quantity = q;
     this.topping = t;
@@ -19,7 +17,7 @@ export class PizzaService {//Technically should name this PizzaOrderService cuz 
     this.pizzaCost();
   }
 
-  //sets/calculates the pizza cost based on the size, topping, and multiplies it by the quantity
+  //sets&calculates the pizza cost based on the size, topping, and multiplies it by the quantity
   pizzaCost(){
     
     this.cost = 0.0;

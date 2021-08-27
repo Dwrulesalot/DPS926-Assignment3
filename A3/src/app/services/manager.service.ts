@@ -7,14 +7,13 @@ import { PizzaService } from './../services/pizza.service';
 })
 export class ManagerService {
 
-  //lists of default values //need to access these from home to display/hold temp values of the pizza's topping&size choice
   pizzaToppingList = ["Pepperoni", "Mushrooms", "Banana Peppers", "Bell Peppers"];
   pizzaSizeList = ["Small", "Medium", "Large", "Extra-Large"];
 
-  //holds the pizza's in the current pizzaOrder 
+  //holds the pizzas in the current pizzaOrder 
   pizzaOrder:PizzaService[];
 
-  //holds all previously made orders (when adding to this be sure to save) 
+  //holds all date, cost and number of pizza for each completed orders 
   allOrders: any[];//todo in future - make this data persist
 
   //holds total cost and total # of pizzas for the current order
@@ -91,7 +90,7 @@ export class ManagerService {
     return this.allOrderTotalPizzas;
   }
 
-  //sumbits the order to the history, setting the time and totalCost/totalPizzas - then calls reset
+  //sumbits the order to the history, setting the time and totalCost/totalPizzas
   addToHistory(){
 
     this.dateTime = new Date();
