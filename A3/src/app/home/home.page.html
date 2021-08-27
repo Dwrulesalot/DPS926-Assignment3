@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-img slot="start" style="width: 80px; height: 80px;" [src]=url></ion-img><!--scales the image down-->
     <ion-title>
-      Ionic/Angular Pizza App
+      Angular Pizza App
     </ion-title>
     <ion-button color="tertiary" slot="end" [routerLink]="['/menu']">
       Menu
@@ -11,72 +11,72 @@
 </ion-header>
 
 <ion-content padding>
-  <div>Quantity: {{currentPizza.quantity}} </div>
+  <div >Quantity: {{currentPizza.quantity}} </div>
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-button (click)="numberClicked(1)">
+        <ion-button size="large" (click)="numberClicked(1)">
           1
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="numberClicked(2)">
+        <ion-button size="large" (click)="numberClicked(2)">
           2
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="numberClicked(3)">
+        <ion-button size="large" (click)="numberClicked(3)">
           3
         </ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button (click)="numberClicked(4)">
+        <ion-button size="large" (click)="numberClicked(4)">
           4
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="numberClicked(5)">
+        <ion-button size="large" (click)="numberClicked(5)">
           5
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="numberClicked(6)">
+        <ion-button size="large" (click)="numberClicked(6)">
           6
         </ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button (click)="numberClicked(7)">
+        <ion-button size="large" (click)="numberClicked(7)">
           7
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="numberClicked(8)">
+        <ion-button size="large" (click)="numberClicked(8)">
           8
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="numberClicked(9)">
+        <ion-button size="large" (click)="numberClicked(9)">
           9
         </ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button color="danger" (click)="resetClicked()">
+        <ion-button size="large" color="danger" (click)="resetClicked()">
           RESET
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="numberClicked(1)">
+        <ion-button size="large" (click)="numberClicked(1)">
           0
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button color="success" (click)="buyClicked()">
+        <ion-button size="large" color="success" (click)="buyClicked()">
           ADD
         </ion-button>
       </ion-col>
