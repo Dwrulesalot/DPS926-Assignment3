@@ -13,7 +13,7 @@ export class ManagerService {
 
   //holds the pizza's in the current pizzaOrder 
   pizzaOrder:PizzaService[];
-  
+
   //holds all previously made orders (when adding to this be sure to save) 
   allOrders: any[];//todo in future - make this data persist
 
@@ -124,7 +124,10 @@ export class ManagerService {
         this.pizzaOrder.splice(index, 1);
       }
    });
-    
+   this.orderPizzaCountTotal();
+   this.orderCostTotal();
+   this.historyCostTotal();
+   this.historyPizzaCountTotal();
   }
 
 }
