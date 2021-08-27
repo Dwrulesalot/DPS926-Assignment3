@@ -23,7 +23,10 @@ export class ManagerService {
   //dateTime of when the order is submitted (set when added to history/ order was submitted)
   dateTime:Date;
 
-  constructor() { // I don't need private pizzaService: PizzaService
+  //boolean that when true, makes the HomePage Reset values - used by MenuPage when clicking 'New Order'
+  newOrderBool = false;
+
+  constructor() {
     this.totalCost = 0.0;//should I just do this above?
     this.totalPizzas = 0;
     this.pizzaOrder = [];//definitions
@@ -65,10 +68,35 @@ export class ManagerService {
   //todo history cost total & history pizza count total as extra
 
 
-  //sumbits the order to the history, setting the time and totalCost/totalPizzas 
+  //sumbits the order to the history, setting the time and totalCost/totalPizzas - then calls reset
   addToHistory(m: ManagerService){
     m.dateTime = new Date();//sets the date/time of the current order to the device's current date/time
     this.allOrders.push(m);
     console.log(this.allOrders);
+
+    this.resetCurrentOrder();//calls the below function, figured it'd be better to keep this functionality separate
+
   }
+
+  //method called in addToHistory to reset pizzeOrder array, and cost/ pizza count values
+  resetCurrentOrder(){
+    this.pizzaOrder.forEach((p, index) => {
+      this.pizzaOrder.splice(index, 1);
+   });
+   this.orderPizzaCountTotal();
+   this.orderCostTotal();
+  
+  }
+  //loops through the pizza order and removes the corresponding pizza from the array
+  deletePizza(pizza: PizzaService){
+    console.log("Manager Sercive: deletePizza- "+pizza);
+
+    this.pizzaOrder.forEach((p, index) => {
+      if(p==pizza){
+        this.pizzaOrder.splice(index, 1);//splice>delete as delete keeps the item in the array and sets it to undefined which i don't want
+      }
+   });
+    
+  }
+
 }

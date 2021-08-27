@@ -36,10 +36,13 @@ export class PizzaService {//Technically should name this PizzaOrderService cuz 
     {
       this.cost += 11.99;
     }
-    else//therefore it's an Extralarge
+    else if (this.size.toString() === "Extra-Large")
     {
-      console.log(this.size.toString());//error catch check
       this.cost += 14.99;
+    }
+    else//therefore it's "N/A"
+    {
+      //cost is already 0.0
     }
     if (this.topping.toString() === "Pepperoni")
     {
@@ -53,10 +56,13 @@ export class PizzaService {//Technically should name this PizzaOrderService cuz 
     {
       this.cost += 1.5;
     }
-    else//therefore it's "Bell Peppers"
+    else if (this.topping.toString() === "Bell Peppers")
     {
-      console.log(this.topping.toString());//error catch check
-      this.cost += 1.0;
+      this.cost += 1.5;
+    }
+    else//therefore it's "N/A"
+    {
+      //cost is already 0.0
     }
 
     //at this point cost = the price of 1 pizza with this.size & this.topping

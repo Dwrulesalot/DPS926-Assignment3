@@ -27,7 +27,7 @@
   </ion-button>
 </div>
   <div style="text-align: center" >
-  <ion-button color="tertiary" [routerLink]="['/home']"><!--need to add clicked functionality for clearing the home page saved data ie: (click)="clicked()"-->
+  <ion-button color="tertiary" (click)='newOrderClicked()' [routerLink]="['/home']">
     New Order 
   </ion-button>
 </div>

@@ -10,7 +10,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class HomePage {
 
-  currentPizza: PizzaService; //will need to wipe this when making a new order - or handle this in manager?
+  currentPizza: PizzaService; 
   url = "https://www.pngkey.com/png/full/140-1401618_pizza-planet-logo-pizza-planet-toy-story-logo.png";
 
   
@@ -19,10 +19,28 @@ export class HomePage {
     this.currentPizza = new PizzaService(0, "N/A", "N/A");//this is the base display
   }
 
+  
+  ngAfterViewChecked(){//using this to check if New Order button has been clicked, if so, reset the current values and change the bool in mangaer back to false
+    console.log("Home Page: ngAfterViewChecked() -  "+this.managerService.newOrderBool);
+    if(this.managerService.newOrderBool){
+      this.resetClicked();
+      this.managerService.newOrderBool = false;
+    }
+  }
+
   //method that handles number clicks, changing currentPizza.quantity
-  numberClicked(n:number){
+  async numberClicked(n:number){
     if(this.currentPizza.quantity>99){//if the quantity is triple digit
-      //alert
+      
+      const alert = await this.alertController.create({
+        cssClass: 'my-custom-class',
+        header: 'Error!',
+        subHeader: '',
+        message: 'The maximum number of pizzas you can order is 999.',
+        buttons: ['OK']
+      });
+
+      await alert.present();
     }
     else if(this.currentPizza.quantity === 0){
       this.currentPizza.quantity = n;//if quantity is currently 0 change to the inputted number
