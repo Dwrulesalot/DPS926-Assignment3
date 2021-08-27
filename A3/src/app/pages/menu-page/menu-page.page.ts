@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ManagerService } from './../../services/manager.service';
 
 @Component({
@@ -6,12 +6,9 @@ import { ManagerService } from './../../services/manager.service';
   templateUrl: './menu-page.page.html',
   styleUrls: ['./menu-page.page.scss'],
 })
-export class MenuPagePage implements OnInit {
+export class MenuPagePage {
 
   constructor(private managerService:ManagerService) { }
-
-  ngOnInit() {
-  }
 
   //Changes boolean in the manager service which is then caught by home.page in ngOnChanges() and will reset the values
   newOrderClicked(){

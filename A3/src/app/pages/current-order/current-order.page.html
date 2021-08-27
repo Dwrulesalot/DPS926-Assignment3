@@ -10,32 +10,24 @@
 <ion-content>
   <ion-grid>
     <ion-row>
+      <ion-col></ion-col>
       <ion-col>
-
-      </ion-col>
-      <ion-col><!--middle column default centered-->
         <ion-title size="large" >Total: ${{managerService.totalCost}} </ion-title>
       </ion-col>
-      <ion-col>
-        
-      </ion-col>
+      <ion-col></ion-col>
     </ion-row>
     <ion-row>
+      <ion-col></ion-col>
       <ion-col>
-
-      </ion-col>
-      <ion-col><!--middle column default centered-->
         <ion-title size="large" >Number of Pizzas: {{managerService.totalPizzas}} </ion-title>
       </ion-col>
-      <ion-col>
-        
-      </ion-col>
+      <ion-col></ion-col>
     </ion-row>
   </ion-grid>
 
   <ion-content>
     <ion-list *ngFor="let pizza of managerService.pizzaOrder" >
-      <ion-item button (click)="itemClicked(pizza)" ><!--add context menu/alert/option to delete-->
+      <ion-item button (click)="itemClicked(pizza)" >
         <ion-grid>
           <ion-row>
             <ion-col>

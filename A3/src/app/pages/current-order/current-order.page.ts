@@ -41,8 +41,7 @@ export class CurrentOrderPage {
 
   //call add to history and clear current order + alert
   async placeOrderClicked(){
-    //alert
-    console.log('CurrentOrder: placeOrderClicked');
+        
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Confirm Order!',
@@ -51,9 +50,12 @@ export class CurrentOrderPage {
       buttons: ['OK']
     });
 
+    console.log('CurrentOrder: placeOrderClicked-  ',this.managerService);//why does this show totalCost & totalPizzas as empty yet above and even here they work if specified?
+    
+    this.managerService.addToHistory();
     await alert.present();
     
-    this.managerService.addToHistory(this.managerService);
+    
 
   }
 

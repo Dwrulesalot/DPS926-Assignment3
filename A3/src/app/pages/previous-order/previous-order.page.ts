@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
+import { ManagerService } from './../../services/manager.service';
 
 @Component({
   selector: 'app-previous-order',
   templateUrl: './previous-order.page.html',
   styleUrls: ['./previous-order.page.scss'],
 })
-export class PreviousOrderPage implements OnInit {
+export class PreviousOrderPage {
 
-  constructor() { }
+ 
 
-  ngOnInit() {
-  }
-
+  constructor(private managerService:ManagerService) { }
+    
 }
